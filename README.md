@@ -1,3 +1,3 @@
-## lott.io
+# [lott.io](https://lott.io)
 
-Personal website for Chris Lott
+Portfolio for Chris Lott
