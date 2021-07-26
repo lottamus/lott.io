@@ -1,11 +1,5 @@
-import Document, {
-  Head,
-  Html,
-  Main,
-  NextScript,
-  DocumentContext,
-} from "next/document";
-import withTwindDocument from "@twind/next/document";
+import withTwindDocument from '@twind/next/document';
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
