@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         sameAs={[
           'https://twitter/chrisnlott',
           'https://github.com/lottamus',
-          'https://www.linkedin.com/in/chrisnlott',
+          'https://linkedin.com/in/chrisnlott',
           'https://instagram.com/chrisnlott',
         ]}
       />
