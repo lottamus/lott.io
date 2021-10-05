@@ -1,3 +1,3 @@
-# [lott.io](https://lott.io)
+[![lott.eth](./public/lott.eth.png)](https://lott.io)
 
-Portfolio for Chris Lott
+[https://lott.io](https://lott.io)
