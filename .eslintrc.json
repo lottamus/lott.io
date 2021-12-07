@@ -1,6 +1,7 @@
 {
-  "extends": ["next", "next/core-web-vitals", "plugin:prettier/recommended"],
-  "plugins": ["simple-import-sort", "prettier", "import", "sort-destructure-keys"],
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "plugins": ["simple-import-sort", "prettier", "sort-destructure-keys"],
+  "root": true,
   "rules": {
     "prettier/prettier": "error",
     "sort-destructure-keys/sort-destructure-keys": 2,

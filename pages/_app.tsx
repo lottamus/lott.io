@@ -3,13 +3,9 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import withDarkMode from 'next-dark-mode';
 import { DefaultSeo, SocialProfileJsonLd } from 'next-seo';
-import { setup } from 'twind';
 
 import SEO from '../next-seo.config';
-
-setup({
-  darkMode: 'class',
-});
+import twindConfig from '../twind.config';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -44,4 +40,5 @@ function MyApp({ Component, pageProps }: AppProps) {
     </>
   );
 }
-export default withDarkMode(withTwindApp(MyApp));
+
+export default withDarkMode(withTwindApp(twindConfig, MyApp));
