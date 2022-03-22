@@ -15,7 +15,7 @@ const defaultConfig = {
     url: 'https://lott.io',
     images: [
       {
-        url: '/lott.eth.png',
+        url: 'https://lott.io/lott.eth.png',
         width: 1380,
         height: 470,
         alt: 'Lott.eth',
