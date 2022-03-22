@@ -1,7 +1,10 @@
+/**
+ * @type {import('next-seo').DefaultSeoProps}
+ */
 const defaultConfig = {
   defaultTitle: 'Chris Lott',
   titleTemplate: '%s | Chris Lott',
-  description: "Software Engineer and Product Manager based in Austin, Texas. Have an app idea? Let's build it!",
+  description: "Designing and developing software in Austin, Texas. Have an app idea? Let's build it!",
   twitter: {
     handle: '@chrisnlott',
     site: '@chrisnlott',
@@ -10,8 +13,6 @@ const defaultConfig = {
   openGraph: {
     type: 'website',
     url: 'https://lott.io',
-    title: 'Chris Lott',
-    description: "Software Engineer and Product Manager based in Austin, Texas. Have an app idea? Let's build it!",
     images: [
       {
         url: '/lott.eth.png',
