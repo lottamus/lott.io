@@ -7,7 +7,8 @@ import { tw } from 'twind';
 import logo from '../public/lott.eth.transparent.png';
 
 export const Header = () => {
-  const { darkModeActive, switchToDarkMode, switchToLightMode } = useDarkMode();
+  const { autoModeActive, darkModeActive, switchToDarkMode, switchToLightMode } = useDarkMode();
+  const darkMode = darkModeActive || autoModeActive;
 
   return (
     <header className={tw`fixed inset-x-0 top-0 z-10 bg-gray-100 dark:(bg-black)`}>
@@ -63,11 +64,11 @@ export const Header = () => {
 
           <li
             className={tw`text-xl text-center cursor-pointer select-none`}
-            onClick={darkModeActive ? switchToLightMode : switchToDarkMode}
+            onClick={darkMode ? switchToLightMode : switchToDarkMode}
             data-splitbee-event="Toggle Mode"
-            data-splitbee-event-type={darkModeActive ? 'light' : 'dark'}
+            data-splitbee-event-type={darkMode ? 'light' : 'dark'}
           >
-            {darkModeActive ? '🌙' : '☀️'}
+            {darkMode ? '🌙' : '☀️'}
           </li>
         </ul>
       </nav>

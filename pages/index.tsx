@@ -127,7 +127,7 @@ const projects = [
       'Built with the modern API workflow in mind, Stoplight brings an intuitive interface and thoughtful features to power your complete API design lifecycle.',
     image: '/stoplight.png',
     href: 'https://stoplight.io',
-    roles: 'Product Manager  · Engineer',
+    roles: 'Product Manager · Engineer',
   },
   {
     title: 'Swing',
@@ -135,7 +135,7 @@ const projects = [
       'Swing is a decentralized multi-chain liquidity protocol aggregating trade volume across decentralized exchanges on multiple blockchains. It eliminates trusted intermediaries allowing for fast, efficient trading.',
     image: '/swing.webp',
     href: 'https://swing.xyz',
-    roles: 'Consultant · Engineer',
+    roles: 'Advisor · Engineer',
   },
   {
     title: 'Forecastr',

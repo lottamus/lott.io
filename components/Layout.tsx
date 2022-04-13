@@ -5,12 +5,11 @@ import { tw } from 'twind';
 import { Header } from './Header';
 
 export const Layout: React.FC = ({ children }) => {
-  const {
-    darkModeActive, // boolean - whether the dark mode is active or not
-  } = useDarkMode();
+  const { autoModeActive, darkModeActive } = useDarkMode();
+  const darkMode = darkModeActive || autoModeActive;
 
   return (
-    <div className={darkModeActive ? 'dark' : 'light'}>
+    <div className={darkMode ? 'dark' : 'light'}>
       <div className={tw`text-gray-900 bg-gray-100 dark:(bg-black text-white) flex flex-col`}>
         <Header />
 

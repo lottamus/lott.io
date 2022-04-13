@@ -38,4 +38,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default withDarkMode(withTwindApp(twindConfig, MyApp), { defaultMode: MODE.DARK });
+export default withDarkMode(withTwindApp(twindConfig, MyApp), {
+  defaultMode: MODE.DARK,
+  darkModeCookieName: 'lott_theme_dark',
+  autoModeCookieName: 'lott_theme_auto',
+});
