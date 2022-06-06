@@ -54,7 +54,7 @@ const Home = () => {
       <section id="chat" className={tw`px-8 flex flex-col items-center justify-center text-center h-[100vh]`}>
         <h3 className={tw`mb-4 text-3xl font-bold tracking-wide`}>I love building products.</h3>
 
-        <p className={tw`text-gray-500`}>
+        <p className={tw`text-gray-500 whitespace-nowrap`}>
           {'Have an exciting idea? '}
           <Link href="/chat" passHref>
             <a
