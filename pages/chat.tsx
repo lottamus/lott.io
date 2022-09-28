@@ -1,27 +1,26 @@
+import Cal from '@calcom/embed-react';
+import { useDarkMode } from 'next-dark-mode';
 import { NextSeo } from 'next-seo';
 import * as React from 'react';
-import { tw } from 'twind';
+import { tw as className } from 'twind';
 
 import { Layout } from '../components/Layout';
 
-const Chat = () => (
-  <Layout>
-    <NextSeo title="Schedule a meeting" description="Schedule a time on my calendar and let's chat!" />
+const Chat = () => {
+  const { autoModeActive, darkModeActive } = useDarkMode();
+  const darkMode = darkModeActive || autoModeActive;
 
-    <section className={tw`h-[100vh] pt-40 flex flex-col`}>
-      <h1 className={tw`text-center text-3xl font-bold tracking-wide`}>{`Let's chat! 🗓️`}</h1>
+  return (
+    <Layout>
+      <NextSeo title="Schedule a meeting" description="Schedule a time on my calendar and let's chat!" />
 
-      <div className={tw`pt-20 flex-1`}>
-        <iframe
-          src="https://app.cal.com/chrislott/30min"
-          frameBorder="0"
-          allowFullScreen
-          height="100%"
-          width="100%"
-        ></iframe>
-      </div>
-    </section>
-  </Layout>
-);
+      <section className={className('min-h-screen py-10 sm:py-40')}>
+        <div className={className('flex-1 pt-20')}>
+          <Cal calLink="chrislott/30min" config={{ theme: darkMode ? 'dark' : 'light' }} />
+        </div>
+      </section>
+    </Layout>
+  );
+};
 
 export default Chat;

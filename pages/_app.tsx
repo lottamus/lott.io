@@ -1,3 +1,6 @@
+import '@fortawesome/fontawesome-svg-core/styles.css';
+
+import { config } from '@fortawesome/fontawesome-svg-core';
 import withTwindApp from '@twind/next/app';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
@@ -6,6 +9,8 @@ import { DefaultSeo, SocialProfileJsonLd } from 'next-seo';
 
 import SEO from '../next-seo.config';
 import twindConfig from '../twind.config';
+
+config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

@@ -29,21 +29,20 @@ const Home = () => {
 
   return (
     <Layout>
-      <section
-        className={tw`flex flex-col justify-center items-center text-center relative`}
-        style={{ height: 'calc(100vh - 80px)' }}
-      >
-        <h1 className={tw`mb-4 text-5xl font-bold tracking-wide`}>{`Hi, I'm Chris Lott 👋`}</h1>
+      <section className={tw`relative flex flex-col items-center justify-center h-screen -mb-32 text-center sm:-mb-20`}>
+        <h1
+          className={tw`mb-4 text-3xl font-bold tracking-wide sm:text-5xl whitespace-nowrap`}
+        >{`Hi, I'm Chris Lott 👋`}</h1>
 
-        <p className={tw`text-gray-500`}>Software Engineer · Product Manager · Entrepreneur</p>
+        <p className={tw`text-sm text-gray-500 sm:text-base`}>Software Engineer · Product Manager · Entrepreneur</p>
       </section>
 
-      <section id="projects" className={tw`flex flex-col space-y-32`}>
-        <a href="#projects" className={tw`text-center flex items-center justify-center`}>
+      <section id="projects" className={tw`flex flex-col space-y-32 sm:space-y-72`}>
+        <a href="#projects" className={tw`flex items-center justify-center h-16 text-xl text-center sm:text-2xl`}>
           <h2
-            className={tw`text-3xl font-bold tracking-wide text-gray-900 dark:(text-white)`}
+            className={tw`font-bold tracking-wide text-gray-900 dark:(text-white) whitespace-nowrap`}
           >{`Check out what I'm building`}</h2>
-          <div className={tw`text-3xl ${bounce} ml-2`}>⏬</div>
+          <div className={tw`ml-2 ${bounce}`}>⏬</div>
         </a>
 
         {projects.map((project, index) => (
@@ -51,8 +50,10 @@ const Home = () => {
         ))}
       </section>
 
-      <section id="chat" className={tw`px-8 flex flex-col items-center justify-center text-center h-[100vh]`}>
-        <h3 className={tw`mb-4 text-3xl font-bold tracking-wide`}>I love building products.</h3>
+      <section id="chat" className={tw`flex flex-col items-center justify-center h-screen px-8 text-center`}>
+        <h3 className={tw`mb-4 text-2xl font-bold tracking-wide sm:text-3xl whitespace-nowrap`}>
+          I love building products.
+        </h3>
 
         <p className={tw`text-gray-500 whitespace-nowrap`}>
           {'Have an exciting idea? '}
@@ -61,7 +62,7 @@ const Home = () => {
               className={tw`border-b hover:(text-gray-700 dark:text-gray-300)`}
               data-splitbee-event="chat"
               data-splitbee-event-type="build-products"
-            >{`Let's build it!`}</a>
+            >{`Let's chat!`}</a>
           </Link>
         </p>
       </section>
@@ -88,7 +89,7 @@ const Project = React.memo(function Project({
       data-splitbee-event-type={project.title}
     >
       <div
-        className={tw('flex justify-between flex-wrap md:flex-nowrap md:space-x-32', {
+        className={tw('flex flex-wrap justify-between md:flex-nowrap md:space-x-32', {
           'flex-row-reverse md:space-x-reverse': reverse,
         })}
       >
@@ -106,7 +107,7 @@ const Project = React.memo(function Project({
 
         <div className={tw`flex flex-col justify-around py(8 md:0) md:w-1/2`}>
           <div>
-            <h3 className={tw`text-3xl font-bold tracking-wide`}>{project.title}</h3>
+            <h3 className={tw`text-2xl font-bold tracking-wide sm:text-3xl`}>{project.title}</h3>
 
             <p className={tw`text-sm text-gray-500`}>{project.href}</p>
 
