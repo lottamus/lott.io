@@ -3,33 +3,30 @@ import { faComment, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useDarkMode } from 'next-dark-mode';
 import React from 'react';
-import { tw as className } from 'twind';
+import { tw } from 'twind';
 
+import { useTheme } from '../context/theme';
 import logo from '../public/lott.eth.transparent.png';
 
 export const Header = () => {
-  const { autoModeActive, darkModeActive, switchToDarkMode, switchToLightMode } = useDarkMode();
-  const darkMode = darkModeActive || autoModeActive;
+  const [theme, switchTheme] = useTheme();
 
   return (
-    <header className={className('inset-x-0 top-0 z-10 bg-gray-100 dark:(bg-black) fixed')}>
-      <nav className={className(`container px-4 py-2 mx-auto sm:px-8 md:px-0`)}>
-        <ul className={className(`flex items-center w-full h-16`)}>
-          <li className={className(`text-center`)}>
-            <Link href="/" passHref>
-              <a className={className(`relative block w-40 h-16`)} title="lott.eth">
-                <Image src={logo} alt="lott.eth" layout="fill" objectFit="contain" priority />
-              </a>
+    <header className={tw('inset-x-0 top-0 z-10 bg-gray-100 dark:(bg-black) fixed')}>
+      <nav className={tw(`container px-4 py-2 mx-auto sm:px-8 md:px-0`)}>
+        <ul className={tw(`flex items-center w-full h-16`)}>
+          <li className={tw(`text-center`)}>
+            <Link href="/" className={tw(`relative block w-40 h-16 flex items-center justify-center`)} title="lott.eth">
+              <Image className={tw('object-contain h-full')} src={logo} alt="lott.eth" priority />
             </Link>
           </li>
 
-          <li className={className(`flex-grow`)} />
+          <li className={tw(`flex-grow`)} />
 
           <li>
             <a
-              className={className(
+              className={tw(
                 'flex items-center justify-center text-2xl text-gray-700 transition-colors duration-150 h-12 w-12 hover:text-gray-900 dark:text-gray-400 dark:(hover:text-gray-100)',
               )}
               href="https://twitter.com/chrisnlott"
@@ -45,7 +42,7 @@ export const Header = () => {
 
           <li>
             <a
-              className={className(
+              className={tw(
                 'flex items-center justify-center text-2xl text-gray-700 transition-colors duration-150 h-12 w-12 hover:text-gray-900 dark:text-gray-400 dark:(hover:text-gray-100)',
               )}
               href="https://github.com/lottamus"
@@ -60,28 +57,29 @@ export const Header = () => {
           </li>
 
           <li>
-            <Link href="/chat" data-splitbee-event="Header Link" data-splitbee-event-type="chat" passHref>
-              <a
-                className={className(
-                  'flex items-center justify-center text-2xl text-gray-700 transition-colors duration-150 h-12 w-12 hover:text-gray-900 dark:text-gray-400 dark:(hover:text-gray-100)',
-                )}
-                title="Chat"
-              >
-                <FontAwesomeIcon icon={faComment} fixedWidth />
-              </a>
+            <Link
+              href="/chat"
+              data-splitbee-event="Header Link"
+              data-splitbee-event-type="chat"
+              className={tw(
+                'flex items-center justify-center text-2xl text-gray-700 transition-colors duration-150 h-12 w-12 hover:text-gray-900 dark:text-gray-400 dark:(hover:text-gray-100)',
+              )}
+              title="Chat"
+            >
+              <FontAwesomeIcon icon={faComment} fixedWidth />
             </Link>
           </li>
 
           <li
-            className={className(
+            className={tw(
               `items-center justify-center hidden w-12 h-12 text-2xl text-yellow-400 cursor-pointer select-none sm:w-12 hover:text-yellow-500 sm:flex`,
             )}
-            onClick={darkMode ? switchToLightMode : switchToDarkMode}
+            onClick={switchTheme}
             data-splitbee-event="Toggle Mode"
-            data-splitbee-event-type={darkMode ? 'light' : 'dark'}
+            data-splitbee-event-type={theme === 'dark' ? 'light' : 'dark'}
             title="Theme"
           >
-            <FontAwesomeIcon icon={darkMode ? faMoon : faSun} fixedWidth />
+            <FontAwesomeIcon icon={theme === 'dark' ? faMoon : faSun} fixedWidth />
           </li>
         </ul>
       </nav>

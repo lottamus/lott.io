@@ -10,7 +10,7 @@
     "type-check": "tsc --noEmit"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.0.9",
@@ -19,18 +19,17 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@twind/next": "^1.0.9",
-    "next": "12.3.1",
-    "next-dark-mode": "^3.0.0",
-    "next-seo": "^5.5.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "next": "13.0.0",
+    "next-seo": "^5.11.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "twind": "^0.16.17"
   },
   "devDependencies": {
     "@types/node": "^17.0.22",
     "@types/react": "^17.0.41",
     "eslint": "<8.0.0",
-    "eslint-config-next": "^12.3.1",
+    "eslint-config-next": "^13.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.2.1",

@@ -1,15 +1,14 @@
-import { useDarkMode } from 'next-dark-mode';
 import React from 'react';
 import { tw } from 'twind';
 
+import { useTheme } from '../context/theme';
 import { Header } from './Header';
 
 export const Layout: React.FC = ({ children }) => {
-  const { autoModeActive, darkModeActive } = useDarkMode();
-  const darkMode = darkModeActive || autoModeActive;
+  const [theme] = useTheme();
 
   return (
-    <div className={darkMode ? 'dark' : 'light'}>
+    <div className={theme}>
       <div className={tw`text-gray-900 bg-gray-100 dark:(bg-black text-white) flex flex-col`}>
         <Header />
 

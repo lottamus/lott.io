@@ -1,10 +1,10 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
 import { tw } from 'twind';
 import { animation } from 'twind/css';
 
 import { Layout } from '../components/Layout';
+import { Project, projects } from '../components/Project';
 
 const bounce = animation('1s ease infinite', {
   'from, 20%, 53%, 80%, to': {
@@ -31,10 +31,11 @@ const Home = () => {
     <Layout>
       <section className={tw`relative flex flex-col items-center justify-center h-screen -mb-32 text-center sm:-mb-20`}>
         <h1
-          className={tw`mb-4 text-3xl font-bold tracking-wide sm:text-5xl whitespace-nowrap`}
+          className={tw`mb-4 text-3xl font-bold tracking-wide sm:text-5xl whitespace-nowrap bg-gradient-to-r from-purple-800 to-blue-500 bg-clip-text`}
+          style={{ WebkitTextFillColor: 'transparent' }}
         >{`Hi, I'm Chris Lott 👋`}</h1>
 
-        <p className={tw`text-sm text-gray-500 sm:text-base`}>Software Engineer · Product Manager · Entrepreneur</p>
+        <p className={tw`text-sm text-gray-400 sm:text-base`}>Software Engineer · Product Manager · Entrepreneur</p>
       </section>
 
       <section id="projects" className={tw`flex flex-col space-y-32 sm:space-y-72`}>
@@ -55,129 +56,20 @@ const Home = () => {
           I love building products.
         </h3>
 
-        <p className={tw`text-gray-500 whitespace-nowrap`}>
+        <p className={tw`text-gray-400 text-opacity-80 whitespace-nowrap`}>
           {'Have an exciting idea? '}
-          <Link href="/chat" passHref>
-            <a
-              className={tw`border-b hover:(text-gray-700 dark:text-gray-300)`}
-              data-splitbee-event="chat"
-              data-splitbee-event-type="build-products"
-            >{`Let's chat!`}</a>
+          <Link
+            href="/chat"
+            className={tw`border-b hover:(text-gray-700 dark:text-gray-300)`}
+            data-splitbee-event="chat"
+            data-splitbee-event-type="build-products"
+          >
+            {`Let's chat!`}
           </Link>
         </p>
       </section>
     </Layout>
   );
 };
-
-const Project = React.memo(function Project({
-  priority,
-  project,
-  reverse,
-}: {
-  project: typeof projects[0];
-  reverse?: boolean;
-  priority?: boolean;
-}) {
-  return (
-    <a
-      href={project.href}
-      target="_blank"
-      rel="noreferrer"
-      className={tw`text-gray-900 dark:(text-white)`}
-      data-splitbee-event="External Link"
-      data-splitbee-event-type={project.title}
-    >
-      <div
-        className={tw('flex flex-wrap justify-between md:flex-nowrap md:space-x-32', {
-          'flex-row-reverse md:space-x-reverse': reverse,
-        })}
-      >
-        <div className={tw(`w(full md:1/2) rounded overflow-hidden block relative`)}>
-          <Image
-            src={project.image}
-            alt={project.title}
-            layout="responsive"
-            objectFit="contain"
-            width={50}
-            height={50}
-            priority={priority}
-          />
-        </div>
-
-        <div className={tw`flex flex-col justify-around py(8 md:0) md:w-1/2`}>
-          <div>
-            <h3 className={tw`text-2xl font-bold tracking-wide sm:text-3xl`}>{project.title}</h3>
-
-            <p className={tw`text-sm text-gray-500`}>{project.href}</p>
-
-            <p className={tw`mt-8`}>{project.description}</p>
-
-            <p className={tw`mt-2 text-sm text-gray-500`}>{project.roles}</p>
-          </div>
-        </div>
-      </div>
-    </a>
-  );
-});
-
-const projects = [
-  {
-    title: 'Stoplight',
-    description:
-      'Built with the modern API workflow in mind, Stoplight brings an intuitive interface and thoughtful features to power your complete API design lifecycle.',
-    image: '/stoplight.png',
-    href: 'https://stoplight.io',
-    roles: 'Product Manager · Engineer',
-  },
-  {
-    title: 'Swing',
-    description:
-      'Swing is a decentralized multi-chain liquidity protocol aggregating trade volume across decentralized exchanges on multiple blockchains. It eliminates trusted intermediaries allowing for fast, efficient trading.',
-    image: '/swing.webp',
-    href: 'https://swing.xyz',
-    roles: 'Advisor · Engineer',
-  },
-  {
-    title: 'Forecastr',
-    description:
-      'Forecastr is a tool that helps founders forecast revenue, predict runway, understand their numbers & get funded.',
-    image: '/forecastr.png',
-    href: 'https://www.forecastr.co',
-    roles: 'Advisor · Engineer',
-  },
-  {
-    title: 'TextRebates',
-    description:
-      'TextRebates makes it easy to capture customer attention and drives sales in liquor and grocery stores through text-based rebates',
-    image: '/textrebates.png',
-    href: 'https://textrebates.com',
-    roles: 'Advisor · Engineer',
-  },
-  {
-    title: 'Authmoji',
-    description:
-      'Authmoji delivers a robust API and app that helps you verify users and future proof your business with two-factor security (2FA).',
-    image: '/authmoji.png',
-    href: 'https://authmoji.com',
-    roles: 'Co-founder · Engineer',
-  },
-  {
-    title: 'GiftEquation',
-    description:
-      'GiftEquation makes gift giving easy by curating lists of the best viral products from across the web.',
-    image: '/giftequation.png',
-    href: 'https://giftequation.com',
-    roles: 'Co-founder  · Engineer',
-  },
-  {
-    title: 'ShipWorthy',
-    description:
-      'ShipWorthy designs and develops elegant software applications, APIs, and services. Our mission is to build SaaS at Sea™.',
-    image: '/shipworthy.png',
-    href: 'https://shipworthy.io',
-    roles: 'Co-founder · Engineer',
-  },
-];
 
 export default Home;

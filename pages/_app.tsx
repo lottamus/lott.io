@@ -4,9 +4,9 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import withTwindApp from '@twind/next/app';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import withDarkMode, { MODE } from 'next-dark-mode';
 import { DefaultSeo, SocialProfileJsonLd } from 'next-seo';
 
+import { ThemeProvider } from '../context/theme';
 import SEO from '../next-seo.config';
 import twindConfig from '../twind.config';
 
@@ -38,13 +38,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         ]}
       />
 
-      <Component {...pageProps} />
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 }
 
-export default withDarkMode(withTwindApp(twindConfig, MyApp), {
-  defaultMode: MODE.DARK,
-  darkModeCookieName: 'lott_theme_dark',
-  autoModeCookieName: 'lott_theme_auto',
-});
+export default withTwindApp(twindConfig, MyApp);
