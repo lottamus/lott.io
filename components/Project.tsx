@@ -75,12 +75,12 @@ export const Project = React.memo(function Project({
       href={project.href}
       target="_blank"
       rel="noreferrer"
-      className={tw`text-gray-900 dark:(text-gray-300) flex items-center min-h-screen relative py-72`}
+      className={tw`text-gray-900 dark:(text-gray-300) flex items-center min-h-screen relative py-32 md:py-72`}
       data-splitbee-event="External Link"
       data-splitbee-event-type={project.title}
       ref={ref}
     >
-      <div className={tw('absolute top-0 bottom-0 left-1/2 h-full flex flex-col items-center w-10 -ml-5')}>
+      <div className={tw('hidden absolute top-0 bottom-0 left-1/2 h-full md:flex flex-col items-center w-10 -ml-5')}>
         <div
           className={tw(
             'w-1 bg-gradient-to-t from-indigo-800 to-blue-500 transition-transform origin-top duration-500 flex-1 h-full scale-y-0 opacity-0 rounded-b',
@@ -123,7 +123,7 @@ export const Project = React.memo(function Project({
       </div>
 
       <div
-        className={tw('flex flex-wrap justify-between md:flex-nowrap md:space-x-32', {
+        className={tw('flex flex-wrap justify-between md:flex-nowrap md:space-x-56', {
           'flex-row-reverse md:space-x-reverse': reverse,
         })}
       >
