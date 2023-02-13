@@ -42,18 +42,17 @@ const Home = () => {
         <h1
           className={tw`mb-4 text-3xl text-gray-900 dark:(text-gray-300) font-bold tracking-wide sm:text-5xl whitespace-nowrap`}
         >
-          {`Hi, I'm`}{' '}
           <span
             className={tw(`bg-gradient-to-r from-purple-800 to-blue-500 bg-clip-text`, pulse)}
             style={{ WebkitTextFillColor: 'transparent' }}
           >
-            Chris Lott
+            {`Hi, I'm Chris Lott`}
           </span>{' '}
           👋
         </h1>
 
         <p className={tw`text-sm text-gray-900 dark:(text-gray-300) sm:text-base`}>
-          Software Engineer · Product Manager · Entrepreneur
+          Software Architect · Product Manager · Entrepreneur
         </p>
       </section>
 
