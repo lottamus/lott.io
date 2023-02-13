@@ -15,7 +15,7 @@ const Chat = () => {
 
       <section className={className('min-h-screen py-10 sm:py-40')}>
         <div className={className('flex-1 pt-20')}>
-          <Cal calLink="chrislott/30min" config={{ theme }} />
+          <Cal calLink="chrislott/chat" config={{ theme }} />
         </div>
       </section>
     </Layout>
