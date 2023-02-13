@@ -10,7 +10,7 @@
     "type-check": "tsc --noEmit"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=16 <=18"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.0.9",
