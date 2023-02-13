@@ -1,0 +1,32 @@
+module.exports = {
+  root: true,
+  extends: ['next/core-web-vitals', 'eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
+  plugins: ['@typescript-eslint', 'simple-import-sort', 'sort-destructure-keys'],
+  parser: '@typescript-eslint/parser',
+  rules: {
+    'sort-destructure-keys/sort-destructure-keys': 2,
+
+    'no-unused-expressions': 'off',
+    'no-console': 'error',
+    'no-confusing-arrow': 'off',
+    'no-else-return': 'off',
+    'no-return-assign': ['error', 'except-parens'],
+    'no-underscore-dangle': 'off',
+    camelcase: 'off',
+    'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
+    'class-methods-use-this': 'off',
+    'no-restricted-syntax': 'off',
+    'no-param-reassign': ['error', { props: false }],
+    'arrow-body-style': 'off',
+    'arrow-parens': 'off',
+
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'warn',
+    'sort-imports': 'off',
+    'import/order': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'import/first': 'error',
+    'import/newline-after-import': 'error',
+    'import/no-duplicates': 'error',
+  },
+};

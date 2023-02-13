@@ -1,5 +1,13 @@
-module.exports = {
+const { withSentryConfig } = require('@sentry/nextjs');
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
+
+  sentry: {
+    hideSourceMaps: true,
+    tunnelRoute: '/api/reporter',
+  },
 
   async rewrites() {
     return [
@@ -14,3 +22,7 @@ module.exports = {
     ];
   },
 };
+
+module.exports = withSentryConfig(nextConfig, {
+  silent: true, // Suppresses all logs
+});

@@ -2,6 +2,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 
 import { config } from '@fortawesome/fontawesome-svg-core';
 import withTwindApp from '@twind/next/app';
+import { Analytics } from '@vercel/analytics/react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { DefaultSeo, SocialProfileJsonLd } from 'next-seo';
@@ -41,6 +42,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider>
         <Component {...pageProps} />
       </ThemeProvider>
+
+      <Analytics />
     </>
   );
 }
