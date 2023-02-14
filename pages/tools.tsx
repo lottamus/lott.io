@@ -67,6 +67,13 @@ const Tools = () => {
             Jotai is a primitive and flexible state management for React. It is the state management library I wish
             React had baked into it.
           </Tool>
+          <Tool href="https://tanstack.com/query/v3/docs/react/overview" title="TanStack Query">
+            TanStack Query is a data-fetching library that handles fetching, caching, synchronizing and updating server
+            state in React applications.
+          </Tool>
+          <Tool href="https://trpc.io/" title="tRPC">
+            tRPC allows you to easily build & consume fully typesafe APIs without schemas or code generation.
+          </Tool>
           <Tool href="https://www.prisma.io/" title="Prisma">
             Prisma is the best Typescript ORM. I use it to manage PostgreSQL databases in my projects.
           </Tool>
