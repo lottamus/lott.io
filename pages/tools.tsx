@@ -20,7 +20,7 @@ function ToolsSection({ children, ...props }: { children: React.ReactNode } & Re
 function Tool({ children, href, title }: { children: React.ReactNode; href: string; title: string }) {
   return (
     <Card as="li">
-      <Card.Title as="h3" href={href}>
+      <Card.Title as="h3" href={href} data-splitbee-event="tool" data-splitbee-href={href}>
         {title}
       </Card.Title>
       <Card.Description>{children}</Card.Description>

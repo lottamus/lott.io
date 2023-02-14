@@ -21,7 +21,7 @@ Card.Link = function CardLink({
     <>
       <div
         className={tw(
-          'absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-gray-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-gray-900 sm:-inset-x-6 sm:rounded-2xl',
+          'absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-gray-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-gray-900 sm:-inset-x-6 sm:rounded-2xl cursor-pointer',
         )}
       />
       <Link {...props}>
@@ -36,6 +36,7 @@ Card.Title = function CardTitle({
   as: Component = 'h2',
   children,
   href,
+  ...props
 }: {
   children: React.ReactNode;
   href?: string;
@@ -44,7 +45,7 @@ Card.Title = function CardTitle({
   return (
     <Component className={tw('text-base font-semibold tracking-tight text-gray-800 dark:text-gray-100')}>
       {href ? (
-        <Card.Link href={href} target={href.startsWith('http') ? '_blank' : undefined}>
+        <Card.Link href={href} target={href.startsWith('http') ? '_blank' : undefined} {...props}>
           {children}
         </Card.Link>
       ) : (

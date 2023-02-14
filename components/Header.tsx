@@ -19,7 +19,7 @@ function HeaderLink({ href, title }: { href: string; title: string }) {
     <li className={tw('hidden sm:block sm:ml-6')}>
       <Link
         href={href}
-        data-splitbee-event="Header Link"
+        data-splitbee-event="header-link"
         data-splitbee-event-type={title.toLowerCase()}
         className={tw('transition-colors duration-150 hover:text-gray-900 dark:(hover:text-gray-100)', {
           'text-gray-900 dark:text-gray-100': isActive,
@@ -54,7 +54,7 @@ function HeaderIcon({
         href={href}
         target={isExternal ? '_blank' : undefined}
         rel={isExternal ? 'noopener noreferrer' : undefined}
-        data-splitbee-event={isExternal ? 'External Link' : 'Header Link'}
+        data-splitbee-event="header-icon"
         data-splitbee-event-type={title.toLowerCase()}
         className={tw(
           'flex items-center justify-center text-2xl transition-colors duration-150 h-8 w-8 sm:h-12 sm:w-12 hover:text-gray-900 dark:(hover:text-gray-100)',

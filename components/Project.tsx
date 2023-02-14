@@ -76,8 +76,8 @@ export const Project = React.memo(function Project({
       target="_blank"
       rel="noreferrer"
       className={tw`text-gray-900 dark:(text-gray-300) flex items-center min-h-screen relative py-32 md:py-72`}
-      data-splitbee-event="External Link"
-      data-splitbee-event-type={project.title}
+      data-splitbee-event="project"
+      data-splitbee-event-type={project.title.toLowerCase()}
       ref={ref}
     >
       <div className={tw('hidden absolute top-0 bottom-0 left-1/2 h-full md:flex flex-col items-center w-10 -ml-5')}>
