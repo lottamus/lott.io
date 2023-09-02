@@ -7,7 +7,7 @@ import { cn } from "utils/classNames";
 
 export function HeaderLink({ href, title }: { href: string; title: string }) {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const isActive = href === "/" ? pathname === href : pathname.startsWith(href);
 
   return (
     <li className={cn("hidden sm:block sm:ml-6")}>

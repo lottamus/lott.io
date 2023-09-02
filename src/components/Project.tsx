@@ -1,9 +1,10 @@
 "use client";
 
-import { useInView } from "react-intersection-observer";
+import { useRef } from "react";
 
 import { faCodeMerge } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion, useScroll } from "framer-motion";
 import Image from "next/image";
 
 import { cn } from "utils/classNames";
@@ -11,55 +12,22 @@ import { type Project as ProjectType } from "utils/projects";
 
 const SlideIn = ({
   children,
-  className,
+  delay = 0.3,
+  reverse,
 }: {
-  className: string;
+  reverse?: boolean;
+  delay?: number;
   children: React.ReactNode;
 }) => {
-  const { inView, ref } = useInView({
-    threshold: 0.5,
-    delay: 200,
-    triggerOnce: true,
-    fallbackInView: true,
-  });
-
   return (
-    <div
-      ref={ref}
-      className={cn("transition-all opacity-0", className, {
-        "opacity-0 -translate-x-8": !inView,
-        "opacity-100 translate-0": inView,
-      })}
+    <motion.div
+      initial={{ opacity: 0, translateX: reverse ? 100 : -100 }}
+      whileInView={{ opacity: 1, translateX: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: delay }}
     >
       {children}
-    </div>
-  );
-};
-
-const SlideUp = ({
-  children,
-  className,
-}: {
-  className?: string;
-  children: React.ReactNode;
-}) => {
-  const { inView, ref } = useInView({
-    threshold: 0,
-    delay: 100,
-    triggerOnce: true,
-    fallbackInView: true,
-  });
-
-  return (
-    <div
-      ref={ref}
-      className={cn("transition-opacity delay-100 opacity-0", className, {
-        "-translate-y-8": !inView,
-        "opacity-100 translate-0": inView,
-      })}
-    >
-      {children}
-    </div>
+    </motion.div>
   );
 };
 
@@ -72,20 +40,21 @@ export const Project = ({
   reverse?: boolean;
   priority?: boolean;
 }) => {
-  const { inView, ref } = useInView({
-    threshold: 0,
-    triggerOnce: true,
-    fallbackInView: true,
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0.1 1", "0.5 1"],
+  });
+
+  const { scrollYProgress: scrollYProgress2 } = useScroll({
+    target: ref,
+    offset: ["0.6 1", "0.7 0.6"],
   });
 
   return (
-    <a
-      href={project.href}
-      target="_blank"
-      rel="noreferrer"
+    <div
       className="relative flex items-center min-h-screen py-20 md:py-72"
-      data-splitbee-event="project"
-      data-splitbee-event-type={project.title.toLowerCase()}
       ref={ref}
     >
       <div
@@ -93,22 +62,20 @@ export const Project = ({
           "absolute top-0 bottom-0 flex-col items-center hidden w-10 h-full -ml-5 left-1/2 md:flex",
         )}
       >
-        <div
+        <motion.div
           className={cn(
-            "flex-1 w-1 h-full transition-transform duration-300 origin-top scale-y-0 rounded-b opacity-0 bg-gradient-to-t from-indigo-800 to-blue-500",
-            {
-              "scale-y-100 opacity-100": inView,
-            },
+            "flex-1 w-1 h-full origin-top rounded-b bg-gradient-to-t from-indigo-800 to-blue-500",
           )}
+          style={{
+            scaleY: scrollYProgress,
+          }}
         />
 
-        <div
-          className={cn(
-            "relative flex items-center justify-center w-10 h-10 my-10 transition-opacity duration-300 delay-1000 rounded-full opacity-0",
-            {
-              "opacity-100": inView,
-            },
-          )}
+        <motion.div
+          className="relative flex items-center justify-center w-10 h-10 my-10 rounded-full"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
         >
           <FontAwesomeIcon
             className={cn("h-full w-full text-2xl text-indigo-600 ml-[14px]", {
@@ -118,21 +85,25 @@ export const Project = ({
             fixedWidth
           />
 
-          <div
+          <motion.div
             className={cn("absolute inset-0 bg-indigo-600", {
               "-left-5": reverse,
             })}
             style={{ filter: `blur(25px)` }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
           />
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
           className={cn(
-            "flex-1 w-1 h-full transition-transform duration-300 delay-1000 origin-top scale-y-0 rounded-t bg-gradient-to-b from-indigo-800 to-blue-500",
-            {
-              "scale-y-100": inView,
-            },
+            "flex-1 w-1 h-full origin-top rounded-t bg-gradient-to-b from-indigo-800 to-blue-500",
           )}
+          style={{
+            scaleY: scrollYProgress2,
+          }}
         />
       </div>
 
@@ -149,23 +120,28 @@ export const Project = ({
             `relative block w-full overflow-hidden rounded-lg md:w-1/2`,
           )}
         >
-          <SlideUp>
+          <SlideIn reverse={!reverse}>
             <Image
               className={cn("object-contain w-full h-auto")}
               src={project.image}
               alt={project.title}
-              width={50}
-              height={50}
               priority={priority}
-              sizes="100vw"
+              sizes="60vw"
               placeholder="blur"
             />
-          </SlideUp>
+          </SlideIn>
         </div>
 
-        <div className="flex flex-col justify-around py-8 md:py-0 md:w-1/2">
+        <a
+          href={project.href}
+          target="_blank"
+          rel="noreferrer"
+          data-splitbee-event="project"
+          data-splitbee-event-type={project.title.toLowerCase()}
+          className="flex flex-col justify-around py-8 md:py-0 md:w-1/2"
+        >
           <div>
-            <SlideIn className="delay-300">
+            <SlideIn reverse={reverse}>
               <h3 className="text-2xl font-bold tracking-wide sm:text-3xl font-heading">
                 {project.title}
               </h3>
@@ -175,7 +151,7 @@ export const Project = ({
               </p>
             </SlideIn>
 
-            <SlideIn className="delay-500">
+            <SlideIn delay={0.5} reverse={reverse}>
               <p className="mt-8">{project.description}</p>
 
               <p className="mt-2 text-sm text-muted-foreground">
@@ -183,8 +159,8 @@ export const Project = ({
               </p>
             </SlideIn>
           </div>
-        </div>
+        </a>
       </div>
-    </a>
+    </div>
   );
 };
