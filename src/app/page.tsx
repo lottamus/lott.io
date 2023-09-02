@@ -34,7 +34,7 @@ export default function Home() {
         </a>
       </section>
 
-      <section id="projects" className="flex flex-col">
+      <section id="projects" className="flex flex-col overflow-x-hidden">
         <div className="relative pt-10 md:pt-40">
           {projects.map((project, index) => (
             <Project
