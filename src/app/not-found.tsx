@@ -1,6 +1,16 @@
+import { Metadata } from "next";
 import Link from "next/link";
 
 import { cn } from "utils/classNames";
+
+export const metadata: Metadata = {
+  title: "Not Found",
+  description: "You've encountered a glitch in the matrix.",
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function NotFound() {
   return (
@@ -24,7 +34,7 @@ export default function NotFound() {
             </p>
             <h1
               className={cn(
-                "mt-2 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl",
+                "mt-2 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl",
               )}
             >
               Nothing to see here

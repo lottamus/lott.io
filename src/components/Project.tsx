@@ -44,7 +44,7 @@ export const Project = ({
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["0.1 1", "0.5 1"],
+    offset: ["0.1 1", "0.3 1"],
   });
 
   const { scrollYProgress: scrollYProgress2 } = useScroll({

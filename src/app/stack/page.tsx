@@ -6,9 +6,31 @@ import { Heading } from "components/Heading";
 import { Section } from "components/Section";
 import { cn } from "utils/classNames";
 
+const title = "Tech Stack";
+const description =
+  "Software tools, applications and products I recommend and use daily.";
+const canonical = "/stack";
+
 export const metadata: Metadata = {
-  title: "Software tools, applications & products I use",
-  description: "Check out a list of tools and products I use daily.",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: canonical,
+    type: "website",
+    images: [
+      {
+        url: "/lott.eth.png",
+        width: 1380,
+        height: 470,
+        alt: "lott.eth",
+      },
+    ],
+  },
+  alternates: {
+    canonical,
+  },
 };
 
 function ToolsSection({

@@ -6,9 +6,22 @@ import { cn } from "utils/classNames";
 // Skip SSR so the theme is picked up correctly
 const CalEmbed = dynamic(() => import("components/CalEmbed"), { ssr: false });
 
+const title = "Schedule a meeting";
+const description = "Book a time on my calendar and let's chat!";
+const canonical = "/chat";
+
 export const metadata: Metadata = {
-  title: "Schedule a meeting",
-  description: "Schedule a time on my calendar and let's chat!",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: canonical,
+    type: "website",
+  },
+  alternates: {
+    canonical,
+  },
 };
 
 export default function Chat() {

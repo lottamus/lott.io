@@ -2,15 +2,37 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { allBlogs } from "contentlayer/generated";
 import dayjs from "dayjs";
+import { Metadata } from "next";
 
 import { Card } from "components/Card";
 import { Footer } from "components/Footer";
 import { Heading } from "components/Heading";
 
-export const metadata = {
-  title: "Blog",
-  description:
-    "Sharing my thoughts, ideas and learnings from my experiences designing products, developing software, growing companies, and more.",
+const title = "Blog";
+const description =
+  "Sharing my thoughts, ideas and learnings from my experiences designing products, developing software, growing companies, and more";
+const canonical = "/blog";
+
+export const metadata: Metadata = {
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: canonical,
+    type: "website",
+    images: [
+      {
+        url: "/lott.eth.png",
+        width: 1380,
+        height: 470,
+        alt: "lott.eth",
+      },
+    ],
+  },
+  alternates: {
+    canonical: canonical,
+  },
 };
 
 function BlogPost({

@@ -11,39 +11,47 @@ import { ThemeProvider } from "components/ThemeProvider";
 
 config.autoAddCss = false;
 
+const title = "Chris Lott";
+const description =
+  "Designing and developing software in Austin, Texas. Have an app idea? Let's build it!";
+const canonical = "/";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://lott.io"),
-  title: { default: "Chris Lott", template: "%s | Chris Lott" },
-  description:
-    "Designing and developing software in Austin, Texas. Have an app idea? Let's build it!",
+  title: { default: title, template: "%s | Chris Lott" },
+  description,
   creator: "Chris Lott",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
+    { media: "(prefers-color-scheme: dark)", color: "#030711" },
   ],
   openGraph: {
+    title,
+    description,
     type: "website",
-    url: "/",
+    url: canonical,
     images: [
       {
         url: "/lott.eth.png",
         width: 1380,
         height: 470,
-        alt: "Lott.eth",
+        alt: "lott.eth",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Chris Lott",
-    description:
-      "Designing and developing software in Austin, Texas. Have an app idea? Let's build it!",
+    title,
+    description,
     creator: "@chrisnlott",
     site: "@chrisnlott",
   },
   robots: {
-    index: process.env.VERCEL_ENV === "production",
-    follow: process.env.VERCEL_ENV === "production",
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical,
   },
 };
 
