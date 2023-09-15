@@ -25,7 +25,7 @@ export default function sitemap() {
 
   routes.push(
     ...allBlogs.map((blog) => ({
-      url: `https://lott.io/blog/${blog.slug}`,
+      url: `https://lott.io/blog/${blog.slugAsParams}`,
       lastModified: new Date(blog.date),
     })),
   );

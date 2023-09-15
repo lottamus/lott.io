@@ -11,10 +11,7 @@ export default function Home() {
       <section className="flex flex-col items-center justify-center h-screen text-center">
         <div className="pb-44">
           <Heading className="whitespace-nowrap">
-            <span
-              className="bg-gradient-to-r from-purple-800 to-blue-500 bg-clip-text animate-pulse-once"
-              style={{ WebkitTextFillColor: "transparent" }}
-            >
+            <span className="text-transparent bg-gradient-to-r from-purple-800 to-blue-500 bg-clip-text animate-pulse-once">
               {`Hi, I'm Chris Lott`}
             </span>{" "}
             👋

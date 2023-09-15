@@ -19,10 +19,7 @@ export function Footer({
     >
       <h3 className="mb-4 text-2xl font-bold tracking-wide sm:text-3xl whitespace-nowrap">
         {titleSplit.join(" ")}{" "}
-        <span
-          className="bg-gradient-to-r from-purple-800 to-blue-500 bg-clip-text animate-pulse-once"
-          style={{ WebkitTextFillColor: "transparent" }}
-        >
+        <span className="text-transparent bg-gradient-to-r from-purple-800 to-blue-500 bg-clip-text animate-pulse-once">
           {keyword}
         </span>
       </h3>

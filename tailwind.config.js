@@ -89,4 +89,7 @@ module.exports = {
     },
   },
   plugins: [animate, typography],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
 };
