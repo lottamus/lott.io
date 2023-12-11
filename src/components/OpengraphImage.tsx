@@ -1,4 +1,4 @@
-import { ImageResponse } from "next/server";
+import { ImageResponse } from "next/og";
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export default async function OpengraphImage({

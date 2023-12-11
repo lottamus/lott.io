@@ -10,7 +10,7 @@ export function HeaderLink({ href, title }: { href: string; title: string }) {
   const isActive = href === "/" ? pathname === href : pathname.startsWith(href);
 
   return (
-    <li className={cn("hidden sm:block sm:ml-6")}>
+    <li className={cn("hidden sm:ml-6 sm:block")}>
       <Link
         href={href}
         data-splitbee-event="header-link"

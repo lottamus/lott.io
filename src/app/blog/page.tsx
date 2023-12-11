@@ -1,5 +1,4 @@
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { allBlogs } from "contentlayer/generated";
 import dayjs from "dayjs";
 import { Metadata } from "next";
@@ -7,6 +6,7 @@ import { Metadata } from "next";
 import { Card } from "components/Card";
 import { Footer } from "components/Footer";
 import { Heading } from "components/Heading";
+import { Icon } from "components/Icon";
 
 const title = "Blog";
 const description =
@@ -56,9 +56,9 @@ function BlogPost({
       </Card.Title>
       <Card.Description>{children}</Card.Description>
 
-      <div className="z-10 flex items-center mt-4 text-sm font-medium text-primary">
+      <div className="z-10 mt-4 flex items-center text-sm font-medium text-primary">
         Read article
-        <FontAwesomeIcon className="w-2 h-2 ml-2" icon={faAngleRight} />
+        <Icon className="ml-2 h-2 w-2" icon={faAngleRight} />
       </div>
     </Card>
   );
@@ -73,7 +73,7 @@ export default function BlogPage() {
 
   return (
     <div className="mx-auto space-y-20">
-      <section className="max-w-2xl py-10 text-left sm:pt-40 sm:pb-32">
+      <section className="max-w-2xl py-10 text-left sm:pb-32 sm:pt-40">
         <Heading>Sharing my thoughts, ideas and learnings</Heading>
 
         <p className="text-sm text-muted-foreground sm:text-base">
@@ -86,7 +86,7 @@ export default function BlogPage() {
         posts.map((post) => {
           return (
             <section key={post._id} aria-labelledby={post.title}>
-              <div className="grid items-baseline max-w-3xl grid-cols-1 gap-y-6 md:grid-cols-4">
+              <div className="grid max-w-3xl grid-cols-1 items-baseline gap-y-6 md:grid-cols-4">
                 <time
                   className="text-sm text-muted-foreground"
                   dateTime={post.date}

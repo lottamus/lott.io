@@ -11,8 +11,8 @@ import { ModeToggle } from "./ModeToggle";
 
 export const NavigationDesktop = () => {
   return (
-    <ul className="items-center hidden w-full h-full py-3 md:flex">
-      <li className="relative flex-grow w-40 h-full text-center sm:flex-none sm:mr-10">
+    <ul className="hidden h-full w-full items-center py-3 md:flex">
+      <li className="relative h-full w-40 flex-grow text-center sm:mr-10 sm:flex-none">
         <Link href="/" className="relative block h-full" title="lott.eth">
           <Image
             className="object-contain"

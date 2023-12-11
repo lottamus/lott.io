@@ -1,8 +1,9 @@
 "use client";
 
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTheme } from "next-themes";
+
+import { Icon } from "./Icon";
 
 export function ModeToggle() {
   const { setTheme, theme } = useTheme();
@@ -10,14 +11,14 @@ export function ModeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      className="rounded-md flex items-center justify-center w-10 h-10 text-yellow-400 cursor-pointer select-none hover:text-yellow-500 transition-colors duration-150 text-2xl"
+      className="flex h-10 w-10 cursor-pointer select-none items-center justify-center rounded-md text-2xl text-yellow-400 transition-colors duration-150 hover:text-yellow-500"
       data-splitbee-event="Toggle Mode"
       data-splitbee-event-type={theme === "light" ? "dark" : "light"}
       title="Theme"
     >
       <span className="sr-only">Toggle mode</span>
 
-      <FontAwesomeIcon icon={theme === "light" ? faSun : faMoon} fixedWidth />
+      <Icon icon={theme === "light" ? faSun : faMoon} fixedWidth />
     </button>
   );
 }

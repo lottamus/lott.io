@@ -1,11 +1,11 @@
 "use client";
 
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { cn } from "utils/classNames";
+
+import { Icon, IconProps } from "./Icon";
 
 export function HeaderIcon({
   className,
@@ -16,7 +16,7 @@ export function HeaderIcon({
   className?: string;
   href: string;
   title: string;
-  icon: IconProp;
+  icon: IconProps["icon"];
 }) {
   const pathname = usePathname();
   const isActive = pathname === href;
@@ -31,7 +31,7 @@ export function HeaderIcon({
         data-splitbee-event="header-icon"
         data-splitbee-event-type={title.toLowerCase()}
         className={cn(
-          "flex items-center justify-center w-10 h-10 text-2xl transition-colors duration-150 hover:text-foreground",
+          "flex h-10 w-10 items-center justify-center text-2xl transition-colors duration-150 hover:text-foreground",
           {
             "text-foreground": isActive,
             "text-foreground/80": !isActive,
@@ -39,7 +39,7 @@ export function HeaderIcon({
         )}
         title={title}
       >
-        <FontAwesomeIcon icon={icon} fixedWidth />
+        <Icon icon={icon} fixedWidth />
       </Link>
     </li>
   );

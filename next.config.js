@@ -8,18 +8,9 @@ let nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 
-  experimental: {
-    serverActions: true,
-  },
-
   modularizeImports: {
     "@fortawesome/free-solid-svg-icons": {
       transform: "@fortawesome/free-solid-svg-icons/{{member}}",
-      preventFullImport: true,
-      skipDefaultConversion: true,
-    },
-    "@fortawesome/free-regular-svg-icons": {
-      transform: "@fortawesome/free-regular-svg-icons/{{member}}",
       preventFullImport: true,
       skipDefaultConversion: true,
     },

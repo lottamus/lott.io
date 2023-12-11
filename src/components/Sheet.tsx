@@ -3,11 +3,11 @@
 import * as React from "react";
 
 import { faClose } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "../utils/classNames";
+import { Icon } from "./Icon";
 
 const Sheet = SheetPrimitive.Root;
 
@@ -29,7 +29,9 @@ const portalVariants = cva("fixed inset-0 z-50 flex", {
 
 interface SheetPortalProps
   extends SheetPrimitive.DialogPortalProps,
-    VariantProps<typeof portalVariants> {}
+    VariantProps<typeof portalVariants> {
+  className?: string;
+}
 
 const SheetPortal = ({
   children,
@@ -37,8 +39,8 @@ const SheetPortal = ({
   position,
   ...props
 }: SheetPortalProps) => (
-  <SheetPrimitive.Portal className={cn(className)} {...props}>
-    <div className={portalVariants({ position })}>{children}</div>
+  <SheetPrimitive.Portal {...props}>
+    <div className={portalVariants({ position, className })}>{children}</div>
   </SheetPrimitive.Portal>
 );
 SheetPortal.displayName = SheetPrimitive.Portal.displayName;
@@ -173,11 +175,11 @@ const SheetHeader = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("flex items-center h-16", className)} {...props}>
+  <div className={cn("flex h-16 items-center", className)} {...props}>
     {children}
 
-    <SheetPrimitive.Close className="flex items-center justify-end flex-1 focus:outline-none">
-      <FontAwesomeIcon className="w-10 h-10" icon={faClose} fixedWidth />
+    <SheetPrimitive.Close className="flex flex-1 items-center justify-end focus:outline-none">
+      <Icon className="h-10 w-10" icon={faClose} fixedWidth />
       <span className="sr-only">Close</span>
     </SheetPrimitive.Close>
   </div>

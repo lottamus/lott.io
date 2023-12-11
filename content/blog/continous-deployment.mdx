@@ -1,0 +1,66 @@
+---
+title: Your Staging Branch is Hurting Your Engineering Culture
+description: Continuous deployment will improve your engineering culture by shipping code to production more frequently.
+date: "2023-10-01"
+image: /images/blog/lott.eth.png
+---
+
+It's common for engineering teams to manage branches of code for each stage of deployment, usually consisting of a development branch, a staging or QA branch, and a production branch. The developers will merge their code changes into the "development" branch. Then after some amount of time (like the end of a sprint or cycle), there is a process of merging that "development" branch into the "staging" or "QA" branch, which is deployed to a production-like environment used for testing. Finally after testing and resolving issues, the "staging" branch is merged into the "production" branch and deployed to the production environment. I'm here to tell you why this is a bad idea, and how you can improve your engineering culture by shipping code to production more frequently.
+
+![Bad Branching Strategy](/images/blog/continous-deployment/bad-branching-strategy.png)
+
+<a
+  className="italics text-xs text-muted-foreground"
+  href="https://squeaky.ai/blog/development/why-we-dont-use-a-staging-environment"
+>
+  Image Credit
+</a>
+
+## Why staging branches are bad
+
+From my experience, staging branches present several challenges:
+
+### Too many changes at once
+
+If your entire team is merging code into a "development" branch, then that branch will likely contain a large number of changes across your entire codebase. When that branch eventually makes it to staging, it will be difficult to test and review each individual code change. If issues are found during the staging process, you'll have to spend time debugging and figuring out which code change is causing issues.
+
+### Compounding bottlenecks
+
+If there is a delay with merging the staging branch into production due to an issue with the code or deployment, then the "development" branch will continue to grow with new code changes. The more code changes going into the development branch means a longer testing and review process for the next merge into the staging branch. This will further stretch out the time between when a developer is creating a change and when that change is deployed to production.
+
+### Understanding what's in production
+
+Using a staging branch makes it difficult for everyone on the team to understand what features or fixes have already been deployed to production. The time between when a Pull Request is merged into the "development" branch and when that code is deployed to production won't be clear to every individual on the team. This can lead to confusion where developers report a bug has been fixed, but the fix hasn't been deployed to production yet.
+
+### Lack of Accountability
+
+When developers rely on testing being done in a staging branch, it leads to a culture where developers are less accountable for their code. They will end up expecting others to test their code and address any issues later.
+
+## A better way to ship code
+
+![Graphite workflow showing PR stacking](/images/blog/continous-deployment/graphite-stacking.png)
+
+<a
+  className="italics text-xs text-muted-foreground"
+  href="https://graphite.dev/blog/your-github-pr-workflow-is-slow"
+>
+  Image Credit
+</a>
+
+### Simplify your branches
+
+Instead of having a separate branch for each stage of deployment, you should only have a single main branch for your production code. This branch should be deployed to production automatically whenever a Pull Request is merged into it.
+
+### Only merge production-ready code
+
+Instead of testing code changes from multiple team members within a single staging branch, you should test code changes as early as possible. This means that developers should be testing their code locally before opening a Pull Request. Once a Pull Request is opened, the branch should be automatically deployed to a preview environment, so the developer and reviewer can test the changes in isolation. Once the Pull Request is determined to be "production-ready", it should be merged into the main branch where it is automatically deployed to production.
+
+### Use feature flags
+
+For features that might span multiple Pull Requests and/or multiple developers, or features that aren't ready for production yet, you should use feature flags to hide it in the production environment. This allows you to continuously merge and deploy code to production without waiting for a feature to be completely finished. Once the feature is ready to be released, you can enable the feature flag to make the code visible to users. This allows you to shift the control of when a feature is released from your engineering team to your product team.
+
+## Conclusion
+
+In my experience, continuously deploying code to production will force your engineering team to test and review code changes earlier in the process. This change in engineering mindset will lead to higher quality code, more accountability, and increased velocity. Although it may seem scary or risky to deploy code to production more frequently, it will ultimately lead to a healthier engineering culture.
+
+Looking for a better way to manage breaking pull requests into smaller chunks? Checkout [Graphite](https://graphite.dev/).

@@ -39,6 +39,7 @@ export function generateMetadata({ params }: PostProps): Metadata {
     },
     openGraph: {
       title: post.title,
+      url: post.slug,
       description: post.description,
       images: [
         {
@@ -64,27 +65,10 @@ export default function PostPage({ params }: PostProps) {
   }
 
   return (
-    <article>
-      <header className="flex flex-col">
-        <Heading>{post.title}</Heading>
-        <time
-          dateTime={post.date}
-          className="flex items-center order-first mb-4 text-base text-muted-foreground"
-        >
-          <span className="h-4 w-0.5 rounded-full bg-muted-foreground" />
-          <span className="ml-3">
-            {dayjs(post.date).add(5, "hours").format("MMMM DD, YYYY")}
-          </span>
-        </time>
-      </header>
-
-      <div className="py-6 mt-8 prose dark:prose-invert">
-        <MDX code={post.body.code} />
-      </div>
-
+    <>
       <ArticleJsonLd
         type="BlogPosting"
-        url={`https://lott.io/${post.slug}`}
+        url={`https://lott.io${post.slug}`}
         title={post.title}
         description={post.description}
         images={[post.image]}
@@ -98,6 +82,25 @@ export default function PostPage({ params }: PostProps) {
         isAccessibleForFree
         useAppDir
       />
-    </article>
+
+      <article>
+        <header className="flex flex-col">
+          <Heading>{post.title}</Heading>
+          <time
+            dateTime={post.date}
+            className="order-first mb-4 flex items-center text-sm text-muted-foreground"
+          >
+            <span className="h-4 w-0.5 rounded-full bg-muted-foreground" />
+            <span className="ml-3">
+              {dayjs(post.date).add(5, "hours").format("MMMM DD, YYYY")}
+            </span>
+          </time>
+        </header>
+
+        <section className="prose py-6 dark:prose-invert">
+          <MDX code={post.body.code} />
+        </section>
+      </article>
+    </>
   );
 }

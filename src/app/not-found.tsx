@@ -14,20 +14,20 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className={cn("flex flex-col min-h-screen pt-16 pb-12")}>
+    <div className={cn("flex min-h-screen flex-col pb-12 pt-16")}>
       <main
         className={cn(
-          "flex flex-col justify-center flex-grow w-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8",
+          "mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-4 sm:px-6 lg:px-8",
         )}
       >
-        <div className={cn("flex justify-center flex-shrink-0 text-6xl")}>
+        <div className={cn("flex flex-shrink-0 justify-center text-6xl")}>
           <Link href="/">🥺</Link>
         </div>
         <div className={cn("py-16")}>
           <div className={cn("text-center")}>
             <p
               className={cn(
-                "text-sm font-semibold tracking-wide text-indigo-600 uppercase",
+                "text-sm font-semibold uppercase tracking-wide text-indigo-600",
               )}
             >
               404

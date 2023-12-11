@@ -7,7 +7,7 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
-  content: ["./src/**/*.{ts,tsx}"],
+  content: ["./src/**/*.{ts,tsx}", "./content/**/*.mdx"],
   theme: {
     container: {
       center: true,
@@ -86,6 +86,20 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "pulse-once": "show 2s ease 1",
       },
+      typography: () => ({
+        DEFAULT: {
+          css: {
+            "--tw-prose-pre-bg": "hsl(var(--secondary))",
+            "--tw-prose-invert-pre-bg": "hsl(var(--secondary))",
+          },
+        },
+        invert: {
+          css: {
+            "--tw-prose-pre-bg": "hsl(var(--secondary))",
+            "--tw-prose-invert-pre-bg": "hsl(var(--secondary))",
+          },
+        },
+      }),
     },
   },
   plugins: [animate, typography],

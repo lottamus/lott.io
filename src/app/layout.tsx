@@ -2,7 +2,7 @@ import "styles/globals.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
-import { Metadata } from "next/types";
+import { Metadata, Viewport } from "next/types";
 import { fontHeading, fontSans } from "styles/fonts";
 
 import { Analytics } from "components/Analytics";
@@ -21,10 +21,6 @@ export const metadata: Metadata = {
   title: { default: title, template: "%s | Chris Lott" },
   description,
   creator: "Chris Lott",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "#030711" },
-  ],
   openGraph: {
     title,
     description,
@@ -55,6 +51,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "#030711" },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -65,7 +68,7 @@ export default function RootLayout({
       <head />
 
       <body
-        className={`antialiased min-h-screen font-sans ${fontHeading.variable} ${fontSans.variable}`}
+        className={`min-h-screen font-sans antialiased ${fontHeading.variable} ${fontSans.variable}`}
       >
         <ThemeProvider
           attribute="class"
@@ -74,7 +77,7 @@ export default function RootLayout({
         >
           <Header />
 
-          <main className="container max-w-6xl px-8 mx-auto mt-16 sm:px-16">
+          <main className="container mx-auto mt-16 max-w-6xl px-8 sm:px-16">
             {children}
           </main>
         </ThemeProvider>

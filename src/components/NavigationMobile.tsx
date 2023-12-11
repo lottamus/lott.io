@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { faGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -10,16 +10,16 @@ import {
   faTimeline,
   faTools,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import logo from "public/lott.eth.transparent.png";
 
+import { Icon } from "./Icon";
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./Sheet";
 
 export const NavigationMobile = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -27,16 +27,16 @@ export const NavigationMobile = () => {
   }, [pathname]);
 
   return (
-    <ul className="relative flex items-center h-full md:hidden">
+    <ul className="relative flex h-full items-center md:hidden">
       <li>
         <Logo />
       </li>
 
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
-          <li className="flex justify-end flex-1">
+          <li className="flex flex-1 justify-end">
             <button className="flex items-center justify-center rounded-full">
-              <FontAwesomeIcon className="w-10 h-10" icon={faBars} fixedWidth />
+              <Icon className="h-10 w-10" icon={faBars} fixedWidth />
             </button>
           </li>
         </SheetTrigger>
@@ -48,63 +48,55 @@ export const NavigationMobile = () => {
             </div>
           </SheetHeader>
 
-          <ul className="flex-1 pl-4 space-y-3 overflow-y-auto text-xl font-medium">
+          <ul className="flex-1 space-y-3 overflow-y-auto pl-4 text-xl font-medium">
             <li>
-              <Link className="flex items-center h-10" href="/">
-                <FontAwesomeIcon className="mr-6" icon={faTimeline} />
+              <Link className="flex h-10 items-center" href="/">
+                <Icon className="mr-6" icon={faTimeline} />
                 <div>Projects</div>
               </Link>
             </li>
 
             <li>
-              <Link className="flex items-center h-10" href="/stack">
-                <FontAwesomeIcon className="mr-6" icon={faTools} fixedWidth />
+              <Link className="flex h-10 items-center" href="/stack">
+                <Icon className="mr-6" icon={faTools} fixedWidth />
                 Stack
               </Link>
             </li>
 
             <li>
-              <Link className="flex items-center h-10" href="/blog">
-                <FontAwesomeIcon
-                  className="mr-6"
-                  icon={faNewspaper}
-                  fixedWidth
-                />
+              <Link className="flex h-10 items-center" href="/blog">
+                <Icon className="mr-6" icon={faNewspaper} fixedWidth />
                 Blog
               </Link>
             </li>
 
             <li>
-              <Link className="flex items-center h-10" href="/chat">
-                <FontAwesomeIcon className="mr-6" icon={faComment} fixedWidth />
+              <Link className="flex h-10 items-center" href="/chat">
+                <Icon className="mr-6" icon={faComment} fixedWidth />
                 Chat
               </Link>
             </li>
 
-            <hr className="bg-muted !my-8" />
+            <hr className="!my-8 bg-muted" />
 
             <li>
               <Link
-                className="flex items-center h-10"
+                className="flex h-10 items-center"
                 href="https://github.com/lottamus"
                 target="_blank"
               >
-                <FontAwesomeIcon className="mr-6" icon={faGithub} fixedWidth />
+                <Icon className="mr-6" icon={faGithub} fixedWidth />
                 Github
               </Link>
             </li>
 
             <li>
               <Link
-                className="flex items-center h-10"
+                className="flex h-10 items-center"
                 href="https://x.com/chrisnlott"
                 target="_blank"
               >
-                <FontAwesomeIcon
-                  className="mr-6"
-                  icon={faXTwitter}
-                  fixedWidth
-                />
+                <Icon className="mr-6" icon={faXTwitter} fixedWidth />
                 Twitter
               </Link>
             </li>
@@ -117,7 +109,7 @@ export const NavigationMobile = () => {
 
 function Logo() {
   return (
-    <Link href="/" className="relative flex w-40 h-10" title="lott.eth">
+    <Link href="/" className="relative flex h-10 w-40" title="lott.eth">
       <Image className="object-contain" src={logo} alt="lott.eth" priority />
     </Link>
   );

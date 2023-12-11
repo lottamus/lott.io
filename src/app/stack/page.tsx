@@ -73,10 +73,10 @@ function Tool({
 export default function Tools() {
   return (
     <div className="space-y-20">
-      <section className="max-w-2xl py-10 text-left sm:pt-40 sm:pb-32">
+      <section className="max-w-2xl py-10 text-left sm:pb-32 sm:pt-40">
         <Heading>Tech Stack</Heading>
 
-        <p className="text-sm sm:text-base text-muted-foreground">
+        <p className="text-sm text-muted-foreground sm:text-base">
           Software tools, applications and products I recommend and use daily.
         </p>
       </section>

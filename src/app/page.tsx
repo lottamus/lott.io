@@ -8,10 +8,10 @@ import { projects } from "utils/projects";
 export default function Home() {
   return (
     <>
-      <section className="flex flex-col items-center justify-center h-screen text-center">
+      <section className="flex h-screen flex-col items-center justify-center text-center">
         <div className="pb-44">
           <Heading className="whitespace-nowrap">
-            <span className="text-transparent bg-gradient-to-r from-purple-800 to-blue-500 bg-clip-text animate-pulse-once">
+            <span className="animate-pulse-once bg-gradient-to-r from-purple-800 to-blue-500 bg-clip-text text-transparent">
               {`Hi, I'm Chris Lott`}
             </span>{" "}
             👋
@@ -24,9 +24,9 @@ export default function Home() {
 
         <a
           href="#projects"
-          className="absolute bottom-0 left-0 right-0 flex items-center justify-center h-24 text-xl text-center sm:text-2xl"
+          className="absolute bottom-0 left-0 right-0 flex h-24 items-center justify-center text-center text-xl sm:text-2xl"
         >
-          <h2 className="font-bold tracking-wide whitespace-nowrap font-heading">{`Check out what I'm building`}</h2>
+          <h2 className="whitespace-nowrap font-heading font-bold tracking-wide">{`Check out what I'm building`}</h2>
           <div className="ml-2 animate-bounce">⏬</div>
         </a>
       </section>

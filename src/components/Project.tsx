@@ -3,12 +3,13 @@
 import { useRef } from "react";
 
 import { faCodeMerge } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, useScroll } from "framer-motion";
 import Image from "next/image";
 
 import { cn } from "utils/classNames";
 import { type Project as ProjectType } from "utils/projects";
+
+import { Icon } from "./Icon";
 
 const SlideIn = ({
   children,
@@ -54,17 +55,17 @@ export const Project = ({
 
   return (
     <div
-      className="relative flex items-center min-h-screen py-20 md:py-72"
+      className="relative flex min-h-screen items-center py-20 md:py-72"
       ref={ref}
     >
       <div
         className={cn(
-          "absolute top-0 bottom-0 flex-col items-center hidden w-10 h-full -ml-5 left-1/2 md:flex",
+          "absolute bottom-0 left-1/2 top-0 -ml-5 hidden h-full w-10 flex-col items-center md:flex",
         )}
       >
         <motion.div
           className={cn(
-            "flex-1 w-1 h-full origin-top rounded-b bg-gradient-to-t from-indigo-800 to-blue-500",
+            "h-full w-1 flex-1 origin-top rounded-b bg-gradient-to-t from-indigo-800 to-blue-500",
           )}
           style={{
             scaleY: scrollYProgress,
@@ -72,14 +73,14 @@ export const Project = ({
         />
 
         <motion.div
-          className="relative flex items-center justify-center w-10 h-10 my-10 rounded-full"
+          className="relative my-10 flex h-10 w-10 items-center justify-center rounded-full"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <FontAwesomeIcon
-            className={cn("h-full w-full text-2xl text-indigo-600 ml-[14px]", {
-              "rotate-180 -ml-[14px]": reverse,
+          <Icon
+            className={cn("ml-[14px] h-full w-full text-2xl text-indigo-600", {
+              "-ml-[14px] rotate-180": reverse,
             })}
             icon={faCodeMerge}
             fixedWidth
@@ -99,7 +100,7 @@ export const Project = ({
 
         <motion.div
           className={cn(
-            "flex-1 w-1 h-full origin-top rounded-t bg-gradient-to-b from-indigo-800 to-blue-500",
+            "h-full w-1 flex-1 origin-top rounded-t bg-gradient-to-b from-indigo-800 to-blue-500",
           )}
           style={{
             scaleY: scrollYProgress2,
@@ -122,7 +123,7 @@ export const Project = ({
         >
           <SlideIn reverse={!reverse}>
             <Image
-              className={cn("object-contain w-full h-auto")}
+              className={cn("h-auto w-full object-contain")}
               src={project.image}
               alt={project.title}
               priority={priority}
@@ -138,11 +139,11 @@ export const Project = ({
           rel="noreferrer"
           data-splitbee-event="project"
           data-splitbee-event-type={project.title.toLowerCase()}
-          className="flex flex-col justify-around py-8 md:py-0 md:w-1/2"
+          className="flex flex-col justify-around py-8 md:w-1/2 md:py-0"
         >
           <div>
             <SlideIn reverse={reverse}>
-              <h3 className="text-2xl font-bold tracking-wide sm:text-3xl font-heading">
+              <h3 className="font-heading text-2xl font-bold tracking-wide sm:text-3xl">
                 {project.title}
               </h3>
 

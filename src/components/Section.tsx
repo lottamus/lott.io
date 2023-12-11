@@ -13,7 +13,7 @@ export function Section({
     <section aria-labelledby={title} className={className}>
       <div
         className={cn(
-          "grid items-baseline max-w-3xl grid-cols-1 mx-auto sm:max-w-5xl gap-y-8 md:grid-cols-4",
+          "mx-auto grid max-w-3xl grid-cols-1 items-baseline gap-y-8 sm:max-w-5xl md:grid-cols-4",
         )}
       >
         <h2 id={title} className={cn("text-sm font-semibold")}>

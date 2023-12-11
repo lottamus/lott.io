@@ -15,16 +15,16 @@ export function Footer({
   return (
     <section
       id="chat"
-      className="flex flex-col items-center justify-center h-screen px-8 text-center"
+      className="flex h-screen flex-col items-center justify-center px-8 text-center"
     >
-      <h3 className="mb-4 text-2xl font-bold tracking-wide sm:text-3xl whitespace-nowrap">
+      <h3 className="mb-4 whitespace-nowrap text-2xl font-bold tracking-wide sm:text-3xl">
         {titleSplit.join(" ")}{" "}
-        <span className="text-transparent bg-gradient-to-r from-purple-800 to-blue-500 bg-clip-text animate-pulse-once">
+        <span className="animate-pulse-once bg-gradient-to-r from-purple-800 to-blue-500 bg-clip-text text-transparent">
           {keyword}
         </span>
       </h3>
 
-      <p className="text-muted-foreground whitespace-nowrap">
+      <p className="whitespace-nowrap text-muted-foreground">
         {description}{" "}
         <Link
           href="/chat"
