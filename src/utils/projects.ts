@@ -1,13 +1,14 @@
 import { StaticImageData } from "next/image";
-import AuthmojiImg from "public/authmoji.png";
-import ForecastrImg from "public/forecastr.png";
-import GiftEquationImg from "public/giftequation.png";
+import AuthmojiImg from "public/images/projects/authmoji.png";
 import FoodParksImg from "public/images/projects/foodparks.png";
+import ForecastrImg from "public/images/projects/forecastr.png";
+import GiftEquationImg from "public/images/projects/giftequation.png";
+import OzempicImg from "public/images/projects/ozempic.png";
 import ScheduleSyncImg from "public/images/projects/schedulesync.png";
-import ShipWorthyImg from "public/shipworthy.png";
-import StoplightImg from "public/stoplight.png";
-import SwingImg from "public/swing.webp";
-import TextRebatesImg from "public/textrebates.png";
+import ShipWorthyImg from "public/images/projects/shipworthy.png";
+import StoplightImg from "public/images/projects/stoplight.png";
+import SwingImg from "public/images/projects/swing.webp";
+import TextRebatesImg from "public/images/projects/textrebates.png";
 
 export interface Project {
   title: string;
@@ -32,6 +33,13 @@ export const projects: Project[] = [
       "FoodParks.io is the go-to place for everything food truck-related. It helps food truck owners find events to book, locations to rent, and food trucks for sale. Landowners and event organizers can list their locations for rent to food trucks.",
     image: FoodParksImg,
     href: "https://www.foodparks.io",
+    roles: "Founder · Engineer",
+  },
+  {
+    title: "Ozempic",
+    description: `Ozempic is the "weight-loss" solution for oversized images. With a user-friendly interface available to both individuals and professionals, Ozempic offers an efficient solution to reduce image file sizes without compromising on quality.`,
+    image: OzempicImg,
+    href: "https://www.ozempic.dev",
     roles: "Founder · Engineer",
   },
   {

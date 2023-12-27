@@ -3,7 +3,6 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 // import remarkGfm from "remark-gfm";
-// import remarkMdxImages from "remark-mdx-images";
 
 export const Blog = defineDocumentType(() => ({
   name: "Blog",
@@ -65,7 +64,7 @@ export default makeSource({
   documentTypes: [Blog],
 
   mdx: {
-    // remarkPlugins: [remarkGfm, remarkMdxImages],
+    // remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypeSlug,
       [rehypePrettyCode, rehypePrettyCodeOptions],
