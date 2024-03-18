@@ -6,26 +6,16 @@ import { notFound } from "next/navigation";
 
 import { Heading } from "components/Heading";
 import { MDX } from "components/MDX";
+import { getPostBySlug } from "utils/getPostFromParams";
 
 interface PostProps {
   params: {
-    slug: string[];
+    slug: string;
   };
 }
 
-function getPostFromParams(params: PostProps["params"]) {
-  const slug = params?.slug?.join("/");
-  const post = allBlogs.find((post) => post.slugAsParams === slug);
-
-  if (!post) {
-    null;
-  }
-
-  return post;
-}
-
 export function generateMetadata({ params }: PostProps): Metadata {
-  const post = getPostFromParams(params);
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
     return notFound();
@@ -41,24 +31,18 @@ export function generateMetadata({ params }: PostProps): Metadata {
       title: post.title,
       url: post.slug,
       description: post.description,
-      images: [
-        {
-          url: post.image,
-          alt: post.title,
-        },
-      ],
     },
   };
 }
 
 export function generateStaticParams(): PostProps["params"][] {
   return allBlogs.map((post) => ({
-    slug: post.slugAsParams.split("/"),
+    slug: post.slug,
   }));
 }
 
 export default function PostPage({ params }: PostProps) {
-  const post = getPostFromParams(params);
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
     return notFound();
@@ -68,10 +52,10 @@ export default function PostPage({ params }: PostProps) {
     <>
       <ArticleJsonLd
         type="BlogPosting"
-        url={`https://lott.io${post.slug}`}
+        url={`https://lott.io/blog/${post.slug}`}
         title={post.title}
         description={post.description}
-        images={[post.image]}
+        images={[`https://lott.io/blog/${post.slug}/opengraph-image.png`]}
         authorName={{
           type: "Person",
           name: "Chris Lott",

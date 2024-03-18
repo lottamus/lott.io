@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
-import Script from "next/script";
 
 export function Analytics() {
   useEffect(() => {
@@ -16,10 +15,6 @@ export function Analytics() {
   return (
     <>
       <VercelAnalytics />
-
-      {process.env.NODE_ENV === "production" && (
-        <Script strategy="lazyOnload" data-api="/_hive" src="/bee.js"></Script>
-      )}
     </>
   );
 }

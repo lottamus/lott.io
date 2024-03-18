@@ -46,12 +46,7 @@ function BlogPost({
 }) {
   return (
     <Card as="article">
-      <Card.Title
-        as="h2"
-        href={href}
-        data-splitbee-event="tool"
-        data-splitbee-href={href}
-      >
+      <Card.Title as="h2" href={href}>
         {title}
       </Card.Title>
       <Card.Description>{children}</Card.Description>
@@ -95,7 +90,7 @@ export default function BlogPage() {
                 </time>
 
                 <div className="md:col-span-3">
-                  <BlogPost title={post.title} href={post.slug}>
+                  <BlogPost title={post.title} href={`/blog/${post.slug}`}>
                     {post.description}
                   </BlogPost>
                 </div>

@@ -13,7 +13,7 @@ import TextRebatesImg from "public/images/projects/textrebates.png";
 export interface Project {
   title: string;
   description: string;
-  image: StaticImageData;
+  image?: StaticImageData;
   href: string;
   roles: string;
 }
@@ -25,6 +25,20 @@ export const projects: Project[] = [
       "ShipWorthy designs and develops elegant software applications, APIs, and services. Our mission is to build SaaS at Sea™.",
     image: ShipWorthyImg,
     href: "https://shipworthy.io",
+    roles: "Founder · Engineer",
+  },
+  {
+    title: "Vetline",
+    description:
+      "Vetline is a AI-powered veterinary assistant that helps veterinarian clinics manage digitals tasks like appointment scheduling, lab results explanations, and more.",
+    href: "https://vetline.ai",
+    roles: "Founder · Engineer",
+  },
+  {
+    title: "BetterTalent",
+    description:
+      "BetterTalent helps recruiters and organizations 10x their productivity. Using AI, rapidly scale your inbound/outbound talent process and goals.",
+    href: "https://bettertalent.ai",
     roles: "Founder · Engineer",
   },
   {
@@ -64,7 +78,7 @@ export const projects: Project[] = [
       "GiftEquation makes gift giving easy by curating lists of the best viral products from across the web.",
     image: GiftEquationImg,
     href: "https://giftequation.com",
-    roles: "Founder  · Engineer",
+    roles: "Founder · Engineer",
   },
   {
     title: "Swing",
@@ -93,9 +107,9 @@ export const projects: Project[] = [
   {
     title: "Stoplight",
     description:
-      "Built with the modern API workflow in mind, Stoplight brings an intuitive interface and thoughtful features to power your complete API design lifecycle. Aquired by SmartBear.",
+      "Built with the modern API workflow in mind, Stoplight brings an intuitive interface and thoughtful features to power your complete API design lifecycle.",
     image: StoplightImg,
     href: "https://stoplight.io",
-    roles: "Product Manager · Engineer",
+    roles: "Product · Engineer",
   },
 ];

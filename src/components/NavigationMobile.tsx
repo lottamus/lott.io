@@ -13,7 +13,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import logo from "public/lott.eth.transparent.png";
+import logo from "public/lott.png";
 
 import { Icon } from "./Icon";
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./Sheet";
@@ -109,8 +109,18 @@ export const NavigationMobile = () => {
 
 function Logo() {
   return (
-    <Link href="/" className="relative flex h-10 w-40" title="lott.eth">
-      <Image className="object-contain" src={logo} alt="lott.eth" priority />
+    <Link
+      href="/"
+      className="relative flex h-full items-center justify-center"
+      title="lott.io"
+    >
+      <Image
+        className="object-contain"
+        src={logo}
+        alt="lott.io"
+        height={50}
+        priority
+      />
     </Link>
   );
 }

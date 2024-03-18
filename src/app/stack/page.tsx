@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 
 import { Card } from "components/Card";
 import { Footer } from "components/Footer";
@@ -57,12 +58,7 @@ function Tool({
 }) {
   return (
     <Card as="li">
-      <Card.Title
-        as="h3"
-        href={href}
-        data-splitbee-event="tool"
-        data-splitbee-href={href}
-      >
+      <Card.Title as="h3" href={href}>
         {title}
       </Card.Title>
       <Card.Description>{children}</Card.Description>
@@ -81,60 +77,58 @@ export default function Tools() {
         </p>
       </section>
 
-      <ToolsSection title="Software">
-        <Tool href="https://www.typescriptlang.org/docs/" title="Typescript">
-          TypeScript is a strongly typed programming language that builds on
-          JavaScript. I highly recommend it over using JavaScript directly.
-        </Tool>
+      <ToolsSection title="Build">
         <Tool href="https://nextjs.org/" title="Next.js">
           Next.js is a full stack framework built on top of React. I use it in
-          all of my React projects (including this site).
+          almost all of my projects (including this site).
         </Tool>
-        <Tool href="https://tailwindcss.com/" title="Tailwind CSS">
-          Tailwind is an open source CSS framework. I use it for styling my
+        <Tool href="https://tailwindcss.com/" title="TailwindCSS">
+          TailwindCSS is an open source CSS framework. I use it for styling my
           projects and highly recommend it over using CSS directly.
         </Tool>
-        <Tool href="https://www.radix-ui.com/" title="Radix UI">
-          RadixUI is an open source component library optimized for fast
-          development, easy maintenance, and accessibility.
+        <Tool href="https://ui.shadcn.com/" title="shadcn/ui">
+          Shadcn is a highly customizable open source component library
         </Tool>
-        <Tool href="https://fontawesome.com/" title="Font Awesome">
+        <Tool href="https://fontawesome.com/" title="FontAwesome">
           Font Awesome is a font and icon toolkit based on CSS. I have been
           using it since their initial release in 2012.
-        </Tool>
-        <Tool href="https://kysely.dev/" title="Kysely">
-          Kysely is a type-safe SQL query builder for typscript. I use it query
-          data from edge functions to my PostgreSQL databases.
         </Tool>
         <Tool href="https://www.prisma.io/" title="Prisma">
           Prisma is the best Typescript ORM. I use it to manage PostgreSQL
           database schemas in my projects.
-        </Tool>
-        <Tool href="https://turbo.build/" title="Turborepo">
-          Turborepo is a high-performance build system for JavaScript and
-          TypeScript codebases. I use it with all of my monorepo projects.
         </Tool>
         <Tool href="https://github.com/egoist/tsup" title="tsup">
           tsup is a TypeScript library bundler with no config, powered by
           esbuild. I use it to bundle all my Typescript projects outside of
           Next.js.
         </Tool>
-        <Tool href="https://eslint.org/" title="ESLint">
-          ESLint is a static code analysis tool for identifying problematic
-          patterns found in code. I use it in combination with Prettier to make
-          sure my code is consistent.
+        <Tool href="https://turbo.build/" title="Turborepo">
+          Turborepo is a high-performance build system for JavaScript and
+          TypeScript codebases. I use it with all of my monorepo projects.
         </Tool>
-        <Tool href="https://playwright.dev/" title="Playwright">
-          Playwright is the most reliable tool for writing and executing
-          end-to-end tests.
+        <Tool href="https://yarnpkg.com/" title="Yarn">
+          Yarn is a package manager with great built-in caching, plugins, and
+          workspaces.
         </Tool>
       </ToolsSection>
 
-      <ToolsSection title="Hosting">
-        <Tool href="https://github.com/" title="Github">
-          Github is the go to platform for hosting source code. I use it to host
-          the source code for all of my projects.
+      <ToolsSection title="AI">
+        <Tool href="https://sdk.vercel.ai/docs" title="Vercel AI SDK">
+          The Vercel AI SDK is an open-source library designed to help
+          developers build conversational streaming user interfaces
         </Tool>
+        <Tool href="https://openai.com/" title="OpenAI">
+          OpenAI is one of the leaders in AI research, and their API is
+          considered OG. Their SDK is becoming a standard in the AI industry.
+        </Tool>
+        <Tool href="https://www.langchain.com/" title="LangChain">
+          LangChain is a framework for developing applications powered by
+          language models. It provides tools and abstractions for working with
+          AI models, agents, vector stores, and other data sources for RAG.
+        </Tool>
+      </ToolsSection>
+
+      <ToolsSection title="Deploy">
         <Tool href="https://vercel.com/" title="Vercel">
           Vercel is a cloud hosting platform designed for Next.js applications.
           Their platform is super easy to use, so I use it for all of my Next.js
@@ -142,30 +136,69 @@ export default function Tools() {
         </Tool>
         <Tool href="https://www.cloudflare.com/" title="Cloudflare">
           Cloudflare is a webhosting platform. I use it for managing DNS
-          records, caching, sending emails, and security for all my web
-          projects.
+          records, caching, websocket servers, sending emails, and security for
+          all my web projects.
         </Tool>
-        <Tool href="https://supabase.com/" title="Supabase">
-          Supabase is an open source platform for managing PostgreSQL databases,
-          auth, and storage.
+        <Tool href="https://github.com/" title="Github">
+          Github is the go to platform for hosting source code. I use it to host
+          the source code for all of my projects.
         </Tool>
         <Tool href="https://neon.tech/" title="Neon">
           Neon is a fully managed Postgres that offers autoscaling, branching,
           and bottomless storage. I use it whenever
           {`I'm`} not using Supabase.
         </Tool>
+        <Tool href="https://upstash.com/" title="Upstash">
+          Upstash is a hosted platform with databases and messaging services
+          that are optimized for serverless integrations.
+        </Tool>
       </ToolsSection>
 
-      <ToolsSection title="Applications">
+      <ToolsSection title="Quality">
+        <Tool href="https://sentry.io/" title="Sentry">
+          Sentry is the best tool for error reporting and application
+          performance monitoring. I set it up for all my projects, so I can find
+          and fix bugs before my users can report them.
+        </Tool>
+        <Tool href="https://axiom.co/" title="Axiom">
+          Axiom is a logging platform that I use to monitor and analyze logs
+          from my projects. They have an easy integration with Vercel that comes
+          with a great default dashboard.
+        </Tool>
+        <Tool href="https://www.typescriptlang.org/docs/" title="Typescript">
+          TypeScript is a strongly typed programming language that builds on
+          JavaScript. I highly recommend it over using JavaScript directly.
+        </Tool>
+        <Tool href="https://eslint.org/" title="ESLint">
+          ESLint is a static code analysis tool for identifying problematic
+          patterns found in code. I use it in combination with Prettier to make
+          sure my code is consistent.
+        </Tool>
+        <Tool href="https://prettier.io/" title="Prettier">
+          Prettier is an opinionated code formatter that keeps my code looking
+          consistent across all projects I work on. Formatted code makes it
+          easier to review.
+        </Tool>
+        <Tool href="https://checklyhq.com" title="Checkly">
+          Checkly is a hosted services for running e2e tests, built on
+          Playwright. They have a simple integration into Vercel that I use to
+          run pre-production smoke tests.
+        </Tool>
+        <Tool href="https://playwright.dev/" title="Playwright">
+          Playwright is the most reliable tool for writing and executing
+          end-to-end tests.
+        </Tool>
+      </ToolsSection>
+
+      <ToolsSection title="Apps">
         <Tool href="https://code.visualstudio.com" title="Visual Studio Code">
           VSCode is an open source code editor, with built in debugging, syntax
           highlighting, code completion, etc. I have it open every day and use
           it to write code for all of my projects and for note taking.
         </Tool>
-        <Tool href="https://cursor.so/" title="Cursor">
-          Cusrosr is an AI-first code editor, built on top of VSCode. I recently
-          started using it in place of VSCode, as their model seems better than
-          Copilot.
+        <Tool href="https://cal.com/" title="Cal.com">
+          Cal.com is a calendar scheduleing application. I use it to allow
+          anyone to <Link href="/chat">schedule time on my calendar</Link>.
         </Tool>
         <Tool href="https://www.git-tower.com/mac" title="Tower">
           Tower is a Git client for macOS. I highly recommend using it over
@@ -174,11 +207,6 @@ export default function Tools() {
         <Tool href="https://tableplus.com/" title="TablePlus">
           TablePlus is a database client for macOS. I use to visualize my
           PostgreSQL databases and run one-off SQL queries.
-        </Tool>
-        <Tool href="https://sentry.io/" title="Sentry">
-          Sentry is the best tool for error reporting and application
-          performance monitoring. I set it up for all my projects, so I can find
-          and fix bugs before my users can report them.
         </Tool>
         <Tool href="https://www.figma.com/" title="Figma">
           Figma is a user interface (UI) design tool. I use it to design
@@ -191,11 +219,8 @@ export default function Tools() {
         </Tool>
         <Tool href="https://linear.app/" title="Linear">
           Linear is the best tool for project management. I use it to manage
-          roadmaps and development tasks for all of my projects.
-        </Tool>
-        <Tool href="https://cal.com/" title="Cal.com">
-          Cal.com is a calendar scheduleing application. I use it to allow
-          anyone to schedule time on my calendar.
+          roadmaps and development tasks for my projects. It keeps me honest and
+          on track.
         </Tool>
         <Tool href="https://stripe.com/" title="Stripe">
           Stripe is a suite of APIs for payment processing. I use it in all my
@@ -205,23 +230,15 @@ export default function Tools() {
           Slack is an instant messaging application. I use it to collaborate
           with others on projects.
         </Tool>
-        <Tool href="https://zoom.us/" title="Zoom">
-          Zoom is a video conferencing tool. I use it for all of my remote
-          meetings. If you schedule a meeting with me, we will use this to chat.
-        </Tool>
-        <Tool href="https://chat.openai.com/" title="ChatGPT">
-          ChatGPT is an AI chatbot trained by OpenAI. I use it to help me with
-          marketing copy and to learn new things.
-        </Tool>
       </ToolsSection>
 
-      <ToolsSection title="Workstation">
+      <ToolsSection title="Hardware">
         <Tool
           href="https://www.apple.com/macbook-pro-14-and-16/"
-          title="16” MacBook Pro, M1 Max, 64GB RAM (2021)"
+          title="16” MacBook Pro M1 Max"
         >
-          I use a MacBook M1 Pro - 16 for my daily work. It is more performance
-          than I actually need, but I love it.
+          I live on this machine day and night. It has 64GB RAM which is more
+          performance than I actually need, but I love it.
         </Tool>
         <Tool
           href="https://www.apple.com/shop/product/HMUA2VC/A/lg-ultrafine-4k-display"
@@ -238,12 +255,26 @@ export default function Tools() {
           is basically an extension of the laptop trackpad.
         </Tool>
         <Tool
+          href="https://www.apple.com/airpods-pro/"
+          title="Apple AirPods Pro 2"
+        >
+          These are my main headphones for taking calls and working out. The
+          noise cancelling on these are amazing.
+        </Tool>
+        <Tool
           href="https://www.apple.com/airpods-max/"
           title="Apple AirPods Max"
         >
           I wear these headphones for most hours of the day (8+ hours). They are
-          super comfortable and sound great. I acutally own 2 pairs after my
-          first pair wore out.
+          super comfortable and sound great. I now own 2 pairs after my first
+          pair wore out.
+        </Tool>
+        <Tool
+          href="https://smrtft.com/products/nuobell-80lb"
+          title="NÜOBELL Dumbells"
+        >
+          NÜOBELL are a pair of adjustable 80lb dumbbells. This is how I really
+          make gains 💪
         </Tool>
       </ToolsSection>
 

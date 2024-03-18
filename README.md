@@ -15,7 +15,7 @@
 
 ## Running Locally
 
-> Requires Node v18.17+
+> Requires Node v20.11+
 
 ```bash
 git clone https://github.com/lottamus/lott.io.git

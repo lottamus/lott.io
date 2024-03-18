@@ -33,7 +33,6 @@ export const NewsletterSignup = ({ className }: { className?: string }) => {
         className="mx-auto mt-10 flex max-w-md flex-col gap-4 sm:flex-row"
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
         action={trackNewsletterSignup}
-        data-splitbee-event="newsletter-signup"
       >
         <label htmlFor="email" className="sr-only">
           Email address

@@ -24,14 +24,14 @@ export default async function OpengraphImage({
           width: "100%",
           alignItems: "center",
           justifyContent: "center",
-          flexDirection: "row",
-          backgroundImage: "linear-gradient(to bottom, #030711, #07122c)",
+          flexDirection: "column",
           fontSize: 100,
           letterSpacing: -2,
           lineHeight: 2,
           fontWeight: 700,
           textAlign: "center",
           overflow: "visible",
+          backgroundImage: "linear-gradient(169deg, #030711, #07122c)",
         }}
       >
         <>{contents}</>

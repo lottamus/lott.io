@@ -11,14 +11,14 @@ export default function Home() {
       <section className="flex h-screen flex-col items-center justify-center text-center">
         <div className="pb-44">
           <Heading className="whitespace-nowrap">
-            <span className="animate-pulse-once bg-gradient-to-r from-purple-800 to-blue-500 bg-clip-text text-transparent">
-              {`Hi, I'm Chris Lott`}
+            <span className="animate-pulse-once bg-gradient-to-r from-indigo-800 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
+              {`Hey, I'm Chris Lott`}
             </span>{" "}
             👋
           </Heading>
 
-          <p className="text-sm sm:text-base">
-            Software Architect · Product Manager · Entrepreneur
+          <p className="text-balance text-sm text-muted-foreground sm:text-base">
+            Building and shipping SaaS at Sea.
           </p>
         </div>
 

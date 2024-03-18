@@ -23,15 +23,13 @@ export function HeaderIcon({
   const isExternal = href.startsWith("http");
 
   return (
-    <li className={cn(className, "px-1 sm:mx-0")}>
+    <li className={cn(className)}>
       <Link
         href={href}
         target={isExternal ? "_blank" : undefined}
         rel={isExternal ? "noopener noreferrer" : undefined}
-        data-splitbee-event="header-icon"
-        data-splitbee-event-type={title.toLowerCase()}
         className={cn(
-          "flex h-10 w-10 items-center justify-center text-2xl transition-colors duration-150 hover:text-foreground",
+          "flex items-center justify-center text-2xl transition-colors duration-150 hover:text-foreground",
           {
             "text-foreground": isActive,
             "text-foreground/80": !isActive,
@@ -39,7 +37,7 @@ export function HeaderIcon({
         )}
         title={title}
       >
-        <Icon icon={icon} fixedWidth />
+        <Icon className="h-5 w-5" icon={icon} fixedWidth />
       </Link>
     </li>
   );

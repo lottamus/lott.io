@@ -13,10 +13,6 @@ export const Blog = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
-    image: {
-      type: "string",
-      required: true,
-    },
     description: {
       type: "string",
       required: true,
@@ -29,11 +25,9 @@ export const Blog = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: "string",
-      resolve: (doc) => `/${doc._raw.flattenedPath}`,
-    },
-    slugAsParams: {
-      type: "string",
-      resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
+      resolve: (doc) => {
+        return doc._raw.flattenedPath.replace("blog/", "");
+      },
     },
   },
 }));

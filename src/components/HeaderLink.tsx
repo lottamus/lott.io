@@ -5,16 +5,22 @@ import { usePathname } from "next/navigation";
 
 import { cn } from "utils/classNames";
 
-export function HeaderLink({ href, title }: { href: string; title: string }) {
+export function HeaderLink({
+  className,
+  href,
+  title,
+}: {
+  href: string;
+  title: string;
+  className?: string;
+}) {
   const pathname = usePathname();
   const isActive = href === "/" ? pathname === href : pathname.startsWith(href);
 
   return (
-    <li className={cn("hidden sm:ml-6 sm:block")}>
+    <li className={cn("hidden sm:block", className)}>
       <Link
         href={href}
-        data-splitbee-event="header-link"
-        data-splitbee-event-type={title.toLowerCase()}
         className={cn(
           "font-medium transition-colors duration-150 hover:text-foreground",
           {

@@ -43,14 +43,14 @@ export const Project = ({
 }) => {
   const ref = useRef(null);
 
-  const { scrollYProgress } = useScroll({
+  const { scrollYProgress: lineAbove } = useScroll({
     target: ref,
-    offset: ["0.1 1", "0.3 1"],
+    offset: ["0 0.8", "0.4 1"],
   });
 
-  const { scrollYProgress: scrollYProgress2 } = useScroll({
+  const { scrollYProgress: lineBelow } = useScroll({
     target: ref,
-    offset: ["0.6 1", "0.7 0.6"],
+    offset: ["1 0.95", "1 0.8"],
   });
 
   return (
@@ -68,7 +68,7 @@ export const Project = ({
             "h-full w-1 flex-1 origin-top rounded-b bg-gradient-to-t from-indigo-800 to-blue-500",
           )}
           style={{
-            scaleY: scrollYProgress,
+            scaleY: lineAbove,
           }}
         />
 
@@ -103,7 +103,7 @@ export const Project = ({
             "h-full w-1 flex-1 origin-top rounded-t bg-gradient-to-b from-indigo-800 to-blue-500",
           )}
           style={{
-            scaleY: scrollYProgress2,
+            scaleY: lineBelow,
           }}
         />
       </div>
@@ -116,29 +116,32 @@ export const Project = ({
           },
         )}
       >
-        <div
-          className={cn(
-            `relative block w-full overflow-hidden rounded-lg md:w-1/2`,
-          )}
+        <a
+          href={project.href}
+          target="_blank"
+          rel="noreferrer"
+          className="relative block w-full overflow-hidden rounded-lg md:w-1/2"
         >
-          <SlideIn reverse={!reverse}>
-            <Image
-              className={cn("h-auto w-full object-contain")}
-              src={project.image}
-              alt={project.title}
-              priority={priority}
-              sizes="60vw"
-              placeholder="blur"
-            />
-          </SlideIn>
-        </div>
+          <div>
+            <SlideIn reverse={!reverse}>
+              {project.image && (
+                <Image
+                  className={cn("h-auto w-full object-contain")}
+                  src={project.image}
+                  alt={project.title}
+                  priority={priority}
+                  sizes="60vw"
+                  placeholder="blur"
+                />
+              )}
+            </SlideIn>
+          </div>
+        </a>
 
         <a
           href={project.href}
           target="_blank"
           rel="noreferrer"
-          data-splitbee-event="project"
-          data-splitbee-event-type={project.title.toLowerCase()}
           className="flex flex-col justify-around py-8 md:w-1/2 md:py-0"
         >
           <div>
