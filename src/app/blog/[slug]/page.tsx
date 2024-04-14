@@ -75,7 +75,7 @@ export default function PostPage({ params }: PostProps) {
             className="order-first mb-4 flex items-center text-sm text-muted-foreground"
           >
             <span className="h-4 w-0.5 rounded-full bg-muted-foreground" />
-            <span className="ml-3">
+            <span className="ml-3" suppressHydrationWarning>
               {dayjs(post.date).add(5, "hours").format("MMMM DD, YYYY")}
             </span>
           </time>

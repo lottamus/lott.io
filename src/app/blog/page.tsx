@@ -85,6 +85,7 @@ export default function BlogPage() {
                 <time
                   className="text-sm text-muted-foreground"
                   dateTime={post.date}
+                  suppressHydrationWarning
                 >
                   {dayjs(post.date).add(5, "hours").format("MMMM DD, YYYY")}
                 </time>
